@@ -50,7 +50,7 @@
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewAbout"
             }
         }
     }, {

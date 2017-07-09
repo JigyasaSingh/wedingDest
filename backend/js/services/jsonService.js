@@ -114,9 +114,4 @@ myApp.service('JsonService', function ($http, TemplateService, $state, toastr, $
       }
     }
   };
-
-
-
-
-
 });

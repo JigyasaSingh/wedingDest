@@ -3,48 +3,46 @@ var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
 
-
-
 myApp.factory('NavigationService', function ($http) {
     var navigation = [{
         name: "About",
         classis: "active",
-        sref: "#!/page/viewAbout//",
+        sref: "#/page/viewAbout//",
         icon: "phone"
     },{
         name: "Home",
         classis: "active",
-        sref: "#!/page/viewHome//",
+        sref: "#/page/viewHome//",
         icon: "phone"
     },{
         name: "Management",
         classis: "active",
-        sref: "#!/page/viewManagement//",
+        sref: "#/page/viewManagement//",
         icon: "phone"
     },{
         name: "Member",
         classis: "active",
-        sref: "#!/page/viewMember//",
+        sref: "#/page/viewMember//",
         icon: "phone"
     },{
         name: "Portfolio",
         classis: "active",
-        sref: "#!/page/viewPortfolio//",
+        sref: "#/page/viewPortfolio//",
         icon: "phone"
     },{
         name: "Services",
         classis: "active",
-        sref: "#!/page/viewServices//",
+        sref: "#/page/viewServices//",
         icon: "phone"
     },{
         name: "Sub-Services",
         classis: "active",
-        sref: "#!/page/viewSubservices//",
+        sref: "#/page/viewSubservices//",
         icon: "phone"
     },{
         name: "Team",
         classis: "active",
-        sref: "#!/page/viewTeam//",
+        sref: "#/page/viewTeam//",
         icon: "phone"
     }];
 
