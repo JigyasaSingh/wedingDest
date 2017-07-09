@@ -1,0 +1,80 @@
+{
+    "title": "Home",
+    "description": "List of Users",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "AboutId",
+        "isSort": "",
+        "tableRef": "aboutId"
+    }, {
+        "name": "teamId",
+        "isSort": "",
+        "tableRef": "teamId"
+    }, {
+        "name": "sliderImage",
+        "isSort": "",
+        "tableRef": "Image"
+    },{
+        "name": "mainServices",
+        "isSort": "",
+        "tableRef": "Services"
+    },{
+
+        "name": "PortfolioId",
+        "isSort": "",
+        "tableRef": "portfolioId"
+    },{
+        "name": "ServiceId",
+        "isSort": "",
+        "tableRef": "serviceId"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editHome",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete Home",
+        "content": "Are you sure you want to delete Home?",
+        "api": "Home/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Excel Export",
+        "icon": "print",
+        "class": "btn-danger",
+        "type": "redirect",
+        "action": "Home/generateExcel",
+        "linkType": "admin"
+    }, {
+        "name": "Upload Excel",
+        "icon": "delete",
+        "class": "btn-warning",
+        "type": "redirect",
+        "action": "excel-upload/Home",
+        "linkType": "internal"
+    }, {
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createHome"
+    }],
+    "apiCall": {
+        "url": "Home/search",
+        "params": "_id"
+    }
+}

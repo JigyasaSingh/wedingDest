@@ -1,0 +1,49 @@
+{
+    "title": "About",
+    "description": "List of Users",
+    "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Tagline",
+        "isSort": "",
+        "tableRef": "tagline"
+    }, {
+        "name": "Description",
+        "isSort": "",
+        "tableRef": "description"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "fa-pencil",
+        "buttonClass": "btn-primary",
+        "type": "page",
+        "action": "editAbout",
+        "fieldsToSend": {
+            "_id": "_id"
+        }
+    }, {
+        "name": "delete",
+        "icon": "fa-trash",
+        "buttonClass": "btn-danger",
+        "type": "apiCallConfirm",
+        "title": "Delete About",
+        "content": "Are you sure you want to delete About?",
+        "api": "About/delete",
+        "fieldsToSend": {
+            "name": "_id",
+            "value": "_id"
+        }
+    }],
+    "button": [{
+        "name": "Create",
+        "icon": "plus",
+        "class": "btn-success",
+        "type": "page",
+        "action": "createAbout"
+    }],
+    "apiCall": {
+        "url": "About/search",
+        "params": "_id"
+    }
+}
