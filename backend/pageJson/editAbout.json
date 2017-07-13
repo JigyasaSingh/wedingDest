@@ -8,7 +8,7 @@
     "fields": [{
         "name": "Image",
         "type": "image",
-        "tableRef": "image",
+        "tableRef": "pictures",
         "size": "250 x 250",
         "placeholder": "Upload photo",
         "id": "image",

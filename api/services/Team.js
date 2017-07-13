@@ -8,8 +8,6 @@ var monguurl = require('monguurl');
 var objectid = require("mongodb").ObjectID;
 var moment = require('moment');
 var request = require("request");
-// var generator = require('generate-password');
-// autoIncrement.initialize(mongoose);
 var schema = new Schema({
 tagline:String,
 teamId:String,
@@ -23,12 +21,6 @@ memberTeam: [{
 
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
-// schema.plugin(autoIncrement.plugin, {
-//     model: 'Athelete',
-//     field: 'atheleteID',
-//     startAt: 1,
-//     incrementBy: 1
-// });
 schema.plugin(timestamps);
 module.exports = mongoose.model('Team', schema);
 

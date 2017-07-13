@@ -4,7 +4,7 @@
  * @description :: Server-side logic for managing uploads
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-
+var FormData = require('form-data');
 module.exports = {
     index: function (req, res) {
         var fileNames = [];

@@ -17,7 +17,7 @@ teamId:{
         ref: 'Team',
         index: true
     },
-image:String,
+pictures:String,
 description:String,
     
 });

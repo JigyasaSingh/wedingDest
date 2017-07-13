@@ -26,7 +26,7 @@ module.exports = {
    ***************************************************************************/
 
   port: 80,
-  realHost: "http://jigyasa.io",
+  realHost: "http://localhost",
   emails: ["jigyasakumari3@gmail.com"]
 
   /***************************************************************************
