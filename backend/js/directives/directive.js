@@ -107,12 +107,14 @@ myApp.directive('uploadImage', function ($http, $filter, $timeout) {
                 var Template = this;
                 image.hide = true;
                 
-                var formdata = new FormData();
-                console.log("file",image.file);
-                console.log("fileName",image.file.name);
-                formdata.append('file', image.file, image.file.name);
-                console.log("formdata",formdata);
-                $http.post(uploadurl, formdata, {
+                var formData = new FormData();
+                // console.log("file",image.file);
+                // console.log("fileName",image.file.name);
+                formData.append('file', image.file);
+                // var options = { content: formdata };
+                // console.log("formdata",formdata.get('file'));
+                // var imageData=formdata.get('file');
+                $http.post(uploadurl, formData, {
                     headers: {
                         'Content-Type': undefined
                     },

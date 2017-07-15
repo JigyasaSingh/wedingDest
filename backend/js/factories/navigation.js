@@ -1,4 +1,5 @@
-var imgurl = "http://localhost:1337/api/upload/";
+var imgurl = adminurl + "upload/";
+
 var imgpath = imgurl + "readFile";
 var uploadurl = imgurl;
 

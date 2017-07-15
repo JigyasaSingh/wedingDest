@@ -1,4 +1,5 @@
 myApp.filter('uploadpath', function () {
+    // console.log("uploadpath",uploadpath);
     return function (input, width, height, style) {
         var other = "";
         if (width && width !== "") {
@@ -12,6 +13,7 @@ myApp.filter('uploadpath', function () {
         }
         if (input) {
             if (input.indexOf('https://') == -1) {
+                console.log("imgpath",imgpath);
                 return imgpath + "?file=" + input + other;
             } else {
                 return input;

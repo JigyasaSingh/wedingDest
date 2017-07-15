@@ -4,28 +4,32 @@
  * @description :: Server-side logic for managing uploads
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var FormData = require('form-data');
 module.exports = {
     index: function (req, res) {
+        // console.log("reqfile",req);
+
+        function callback2(err) {
+            res.callback(err, fileNames);
+        }
         var fileNames = [];
         req.file("file").upload({
             maxBytes: 10000000 // 10 MB Storage 1 MB = 10^6
         }, function (err, uploadedFile) {
-            if (err) {
-                res.callback(err);
-            } else if (uploadedFile && uploadedFile.length > 0) {
+            // console.log("uploaded file", uploadedFile);
+            if (uploadedFile && uploadedFile.length > 0) {
                 async.each(uploadedFile, function (n, callback) {
                     Config.uploadFile(n.fd, function (err, value) {
                         if (err) {
                             callback(err);
                         } else {
+                            console.log("after upload file", value);
                             fileNames.push(value.name);
                             callback(null);
                         }
                     });
-                }, res.callback);
+                }, callback2);
             } else {
-                res.callback(null, {
+                callback2(null, {
                     value: false,
                     data: "No files selected"
                 });
