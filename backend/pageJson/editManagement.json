@@ -1,7 +1,7 @@
 {
     "title": "Create Management",
     "name": "Management",
-    "jsonPage": "viewUser",
+    "jsonPage": "viewManagement",
     "desciption": "",
     "pageType": "create",
     "urlFields": ["Management"],
@@ -55,11 +55,11 @@
     }],
     "action": [{
         "name": "submit",
-        "action": "submitUser",
+        "action": "submitManagement",
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewManagement"
             }
         }
     }, {
@@ -68,16 +68,16 @@
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewManagement"
             }
         }
     }],
     "apiCall": {
-        "url": "User/save",
+        "url": "Management/save",
         "params": "_id"
     },
     "preApi": {
-        "url": "User/getOne",
+        "url": "Management/getOne",
         "params": "_id"
     }
 

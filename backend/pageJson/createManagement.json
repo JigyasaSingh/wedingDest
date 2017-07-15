@@ -60,7 +60,7 @@
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewManagement"
             }
         }
     }, {
@@ -69,11 +69,11 @@
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewManagement"
             }
         }
     }],
     "apiCall": {
-        "url": "About/save"
+        "url": "Management/save"
     }
 }

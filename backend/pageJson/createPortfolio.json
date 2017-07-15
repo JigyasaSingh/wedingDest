@@ -1,11 +1,19 @@
 {
-    "title": "Create User",
-    "name": "About",
-    "jsonPage": "viewUser",
+    "title": "Create Portfolio",
+    "name": "Portfolio",
+    "jsonPage": "viewPortfolio",
     "desciption": "",
     "pageType": "create",
-    "urlFields": ["About"],
+    "urlFields": ["Portfolio"],
     "fields": [{
+        "name": "Tagline",
+        "type": "text",
+        "tableRef": "tagline",
+        "placeholder": "Enter tagline",
+        "id": "tagline",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Image",
         "type": "image",
         "tableRef": "image",

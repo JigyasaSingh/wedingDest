@@ -106,11 +106,11 @@
     }],
     "action": [{
         "name": "submit",
-        "action": "submitUser",
+        "action": "submitMember",
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewMember"
             }
         }
     }, {
@@ -119,11 +119,11 @@
         "stateName": {
             "page": "page",
             "json": {
-                "id": "viewUser"
+                "id": "viewMember"
             }
         }
     }],
     "apiCall": {
-        "url": "About/save"
+        "url": "Member/save"
     }
 }

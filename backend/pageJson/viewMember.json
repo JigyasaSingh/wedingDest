@@ -1,6 +1,6 @@
 {
     "title": "About",
-    "description": "List of Users",
+    "description": "List of Members",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
@@ -9,20 +9,16 @@
         "isSort": "",
         "tableRef": "name"
     }, {
-        "name": "Email",
+        "name": "Designation",
         "isSort": "",
-        "tableRef": "email"
-    }, {
-        "name": "Mobile",
-        "isSort": "",
-        "tableRef": "mobile"
+        "tableRef": "designation"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editUser",
+        "action": "editMember",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -31,9 +27,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete User",
-        "content": "Are you sure you want to delete User?",
-        "api": "user/delete",
+        "title": "Delete Member",
+        "content": "Are you sure you want to delete Member?",
+        "api": "Member/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -44,24 +40,24 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "User/generateExcel",
+        "action": "Member/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/User",
+        "action": "excel-upload/Member",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createUser"
+        "action": "createMember"
     }],
     "apiCall": {
-        "url": "User/search",
+        "url": "Member/search",
         "params": "_id"
     }
 }
