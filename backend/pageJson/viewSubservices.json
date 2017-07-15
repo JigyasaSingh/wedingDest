@@ -1,6 +1,6 @@
 {
-    "title": "User",
-    "description": "List of Users",
+    "title": "SubServices",
+    "description": "List of SubServicess",
     "pageType": "view",
     "sendIdWithCreate": true,
     "urlFields": ["_id"],
@@ -8,21 +8,13 @@
         "name": "Name",
         "isSort": "",
         "tableRef": "name"
-    }, {
-        "name": "Email",
-        "isSort": "",
-        "tableRef": "email"
-    }, {
-        "name": "Mobile",
-        "isSort": "",
-        "tableRef": "mobile"
     }],
     "action": [{
         "name": "edit",
         "icon": "fa-pencil",
         "buttonClass": "btn-primary",
         "type": "page",
-        "action": "editUser",
+        "action": "editSubServices",
         "fieldsToSend": {
             "_id": "_id"
         }
@@ -31,9 +23,9 @@
         "icon": "fa-trash",
         "buttonClass": "btn-danger",
         "type": "apiCallConfirm",
-        "title": "Delete User",
-        "content": "Are you sure you want to delete User?",
-        "api": "user/delete",
+        "title": "Delete SubServices",
+        "content": "Are you sure you want to delete SubServices?",
+        "api": "SubServices/delete",
         "fieldsToSend": {
             "name": "_id",
             "value": "_id"
@@ -44,21 +36,21 @@
         "icon": "print",
         "class": "btn-danger",
         "type": "redirect",
-        "action": "User/generateExcel",
+        "action": "SubServices/generateExcel",
         "linkType": "admin"
     }, {
         "name": "Upload Excel",
         "icon": "delete",
         "class": "btn-warning",
         "type": "redirect",
-        "action": "excel-upload/User",
+        "action": "excel-upload/SubServices",
         "linkType": "internal"
     }, {
         "name": "Create",
         "icon": "plus",
         "class": "btn-success",
         "type": "page",
-        "action": "createUser"
+        "action": "createSubServices"
     }],
     "apiCall": {
         "url": "User/search",
