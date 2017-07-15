@@ -6,6 +6,22 @@
     "pageType": "create",
     "urlFields": ["Management"],
     "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter Name",
+        "id": "name",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Designation",
+        "type": "text",
+        "tableRef": "designation",
+        "placeholder": "Enter Designation",
+        "id": "designation",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    },{
         "name": "Image",
         "type": "image",
         "tableRef": "image",
@@ -17,25 +33,25 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     },  {
-        "name": "Designation",
+        "name": "Summary",
         "type": "text",
-        "tableRef": "Management",
-        "placeholder": "Enter Designation",
-        "id": "email",
+        "tableRef": "summary",
+        "placeholder": "Enter summary",
+        "id": "summary",
         "validation": ["", "trim", "unique"],
         "url": ""
-    },{
-        "name": "AccessLevel",
+    },   {
+        "name": "Is Home View",
         "type": "tags",
-        "tableRef": "accessLevel",
+        "tableRef": "isHomeView",
         "placeholder": "Enter Title",
-        "id": "status",
+        "id": "isHomeView",
         "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
         "onView": true,
-        "dropDown": ["User","Admin"]
+        "dropDown": ["true", "false"]
     }],
     "action": [{
         "name": "submit",

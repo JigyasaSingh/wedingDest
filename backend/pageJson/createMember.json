@@ -5,8 +5,34 @@
     "desciption": "",
     "pageType": "create",
     "urlFields": ["Member"],
-    "fields": [
-        {
+    "fields": [{
+        "name": "teamId",
+        "type": "tags",
+        "dropDownType": "single",
+        "dropDownField": "teamId",
+        "tableRef": "teamId",
+        "searchApi": "searchCall",
+        "placeholder": "Enter Team",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Team/search"
+    }, {
+        "name": "name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Designation",
+        "type": "text",
+        "tableRef": "designation",
+        "placeholder": "Enter designation",
+        "id": "designation",
+        "validation": ["", "trim", "unique"],
+        "url": ""
+    }, {
         "name": "Image",
         "type": "image",
         "tableRef": "image",
@@ -17,25 +43,7 @@
         "disabled": true,
         "validation": ["required", "trim", "unique"],
         "url": ""
-
-        },
-      {
-        "name": "Designation",
-        "type": "text",
-        "tableRef": "designation",
-        "placeholder": "Enter designation",
-        "id": "designation",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "name",
-        "type": "text",
-        "tableRef": "name",
-        "placeholder": "Enter name",
-        "id": "name",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
+        },{
         "name": "Summary",
         "type": "text",
         "tableRef": "summary",
@@ -83,19 +91,18 @@
         "id": "youtube",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },
-       {
-        "name": "AccessLevel",
+    }, {
+        "name": "Is Home View",
         "type": "tags",
-        "tableRef": "accessLevel",
+        "tableRef": "isHomeView",
         "placeholder": "Enter Title",
-        "id": "status",
+        "id": "isHomeView",
         "validation": ["", "trim", ""],
         "url": "",
         "dropDownField": "",
         "dropDownType": "single",
         "onView": true,
-        "dropDown": ["User", "Admin"]
+        "dropDown": ["true", "false"]
     }],
     "action": [{
         "name": "submit",

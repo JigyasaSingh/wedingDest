@@ -6,7 +6,17 @@
     "pageType": "create",
     "urlFields": ["Home"],
     "fields": [{
-         
+        "name": "teamId",
+        "type": "tags",
+        "dropDownType": "single",
+        "dropDownField": "teamId",
+        "tableRef": "teamId",
+        "searchApi": "searchCall",
+        "placeholder": "Enter Team",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Team/search"
+    },{ 
         "name": "SliderImage",
         "type": "image",
         "tableRef": "image",
@@ -18,50 +28,61 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "mainServices",
-        "type": "text",
-        "tableRef": "Services",
-        "placeholder": "Enter services",
-        "id": "mainServices",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "AboutId",
+        "name": "Main Services",
         "type": "tags",
+        "dropDownType": "multiple",
+        "dropDownField": "name",
+        "tableRef": "mainServices",
+        "searchApi": "searchCall",
+        "placeholder": "Enter About",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Services/search"
+    }, {
+        "name": "About ID",
+        "type": "tags",
+        "dropDownType": "single",
+        "dropDownField": "tagline",
         "tableRef": "aboutId",
-        "placeholder": "Enter aboutId",
-        "id": "aboutId",
-        "validation": ["", "trim", "unique"],
-        "url": ""
+        "searchApi": "searchCall",
+        "placeholder": "Enter About",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "About/search"
     }, {
         "name": "PortfolioId",
         "type": "tags",
         "tableRef": "portfolioId",
-        "placeholder": "Enter portfolioId",
-        "id": "portfolioId",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
+        "dropDownType": "single",
+        "dropDownField": "tagline",
+        "searchApi": "searchCall",
+        "placeholder": "Enter portfolio",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Portfolio/search"
     }, {
-        "name": "TeamId",
+        "name": "Member Team",
         "type": "tags",
-        "tableRef": "teamId",
-        "placeholder": "Enter teamid",
-        "id": "teamId",
-        "disabled": false,
-        "validation": ["required", "trim", "unique"],
-        "url": ""
+        "tableRef": "memberTeam",
+        "dropDownType": "multiple",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Enter Team Member",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "Member/search"
     }, {
         "name": "ServiceId",
         "type": "tags",
         "tableRef": "serviceId",
-        "placeholder": "Enter Title",
-        "id": "serviceId",
+        "dropDownType": "multiple",
+        "dropDownField": "name",
+        "searchApi": "searchCall",
+        "placeholder": "Enter services",
+        "id": "input1",
         "validation": ["", "trim", ""],
-        "url": "",
-        "dropDownField": "",
-        "dropDownType": "single",
-        "onView": true,
-        "dropDown": ["User", "Admin"]
+        "url": "SubServices/search"
+        
     }],
     "action": [{
         "name": "submit",
