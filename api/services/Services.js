@@ -13,7 +13,7 @@ var request = require("request");
 var schema = new Schema({
 subService: [{
         type: Schema.Types.ObjectId,
-        ref: 'Member',
+        ref: 'SubServices',
         index: true
     }],
 name: String,

@@ -16,7 +16,7 @@ headline:String,
 description:String,
 image:String,
 icon: String,
-MainService: {
+mainService: {
         type: Schema.Types.ObjectId,
         ref: 'Services',
         index: true,

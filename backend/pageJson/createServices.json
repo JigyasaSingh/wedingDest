@@ -6,6 +6,33 @@
     "pageType": "create",
     "urlFields": ["Services"],
     "fields": [{
+        "name": "Sub Service",
+        "type": "tags",
+        "dropDownType": "single",
+        "dropDownField": "subService",
+        "tableRef": "subService",
+        "searchApi": "searchCall",
+        "placeholder": "Enter Team",
+        "id": "input1",
+        "validation": ["", "trim", ""],
+        "url": "SubService/search"
+    }, {
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "placeholder": "Enter name",
+        "id": "name",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Description",
+        "type": "text",
+        "tableRef": "description",
+        "placeholder": "Enter description",
+        "id": "description",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },  {
         "name": "Image",
         "type": "image",
         "tableRef": "image",
@@ -16,45 +43,21 @@
         "disabled": true,
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },  {
-        "name": "Description",
+    }, {
+        "name": "Tagline",
         "type": "text",
-        "tableRef": "description",
-        "placeholder": "Enter description",
-        "id": "description",
-        "validation": ["", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "Name",
-        "type": "text",
-        "tableRef": "name",
-        "placeholder": "Enter name",
-        "id": "name",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "subServiceId",
-        "type": "tags",
-        "tableRef": "subServiceId",
-        "placeholder": "Enter subServiceId",
-        "id": "subServiceId",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    }, {
-        "name": "tagline",
-        "type": "tags",
         "tableRef": "tagline",
         "placeholder": "Enter tagline",
         "id": "tagline",
-        "validation": ["", "trim", "unique"],
+        "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
         "name": "Priority",
-        "type": "number",
+        "type": "text",
         "tableRef": "priority",
         "placeholder": "Enter priority",
         "id": "priority",
-        "validation": ["", "trim", "unique"],
+        "validation": ["required", "trim", "unique"],
         "url": ""
     }],
     "action": [{
