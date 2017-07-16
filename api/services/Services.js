@@ -33,6 +33,21 @@ var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 
 
     var model = {
+        saveInServices: function (data, callback) {
+                    Services.saveData(data, function (err, teamData) {
+                        if (err) {
+                            console.log("err", err);
+                            callback("There was an error ", null);
+                        } else {
+                            if (_.isEmpty(teamData)) {
+                                callback("No data found", null);
+                            } else {
+                                callback(null, teamData);
+                            }
+                        }
+                    });
+            
+    },
 
     };
 module.exports = _.assign(module.exports, exports, model);

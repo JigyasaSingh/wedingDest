@@ -56,6 +56,6 @@
         }
     }],
     "apiCall": {
-        "url": "About/save"
+        "url": "Portfolio/save"
     }
 }

@@ -6,17 +6,6 @@
     "pageType": "create",
     "urlFields": ["Services"],
     "fields": [{
-        "name": "Sub Service",
-        "type": "tags",
-        "dropDownType": "single",
-        "dropDownField": "subService",
-        "tableRef": "subService",
-        "searchApi": "searchCall",
-        "placeholder": "Enter Team",
-        "id": "input1",
-        "validation": ["", "trim", ""],
-        "url": "SubService/search"
-    }, {
         "name": "Name",
         "type": "text",
         "tableRef": "name",
@@ -80,6 +69,6 @@
         }
     }],
     "apiCall": {
-        "url": "Services/save"
+        "url": "Services/saveInServices"
     }
 }

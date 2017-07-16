@@ -1,12 +1,12 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
-    saveAbout: function (req, res) {
+    saveInServices: function (req, res) {
         if (req.body) {
-            About.saveAbout(req.body, res.callback);
-        } else {
+            Services.saveInServices(req.body, res.callback);
+        }else{
             res.json({
                 value: false,
-                data: "Invalid Request"
+                data: "User Not logged in"
             });
         }
     },

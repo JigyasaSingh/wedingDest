@@ -72,7 +72,7 @@ var model = {
 
     },
 
-saveInTeam: function (data, callback) {
+    saveInTeam: function (data, callback) {
         async.waterfall([
                 function (callback) {
                     Team.findOne().sort({
@@ -122,7 +122,7 @@ saveInTeam: function (data, callback) {
             });
     },
 
-    
+
     };
 
 module.exports = _.assign(module.exports, exports, model);
