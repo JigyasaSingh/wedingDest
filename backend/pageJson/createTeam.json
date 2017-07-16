@@ -13,28 +13,6 @@
         "id": "tagline",
         "validation": ["", "trim", "unique"],
         "url": ""
-    }, {
-        "name": "teamId",
-        "type": "tags",
-        "dropDownType": "single",
-        "dropDownField": "teamId",
-        "tableRef": "teamId",
-        "searchApi": "searchCall",
-        "placeholder": "Enter Team",
-        "id": "input1",
-        "validation": ["", "trim", ""],
-        "url": "Team/search"
-    },{
-        "name": "Member Team",
-        "type": "tags",
-        "dropDownType": "multiple",
-        "dropDownField": "name",
-        "tableRef": "memberTeam",
-        "searchApi": "searchCall",
-        "placeholder": "Enter Team",
-        "id": "input1",
-        "validation": ["", "trim", ""],
-        "url": "Member/search"
     }],
     "action": [{
         "name": "submit",
@@ -56,6 +34,6 @@
         }
     }],
     "apiCall": {
-        "url": "About/save"
+        "url": "Team/saveInTeam"
     }
 }

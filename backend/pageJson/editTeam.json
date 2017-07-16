@@ -15,15 +15,12 @@
         "url": ""
     }, {
         "name": "teamId",
-        "type": "tags",
-        "dropDownType": "single",
-        "dropDownField": "teamId",
+        "type": "text",
         "tableRef": "teamId",
-        "searchApi": "searchCall",
         "placeholder": "Enter Team",
-        "id": "input1",
+        "id": "team",
         "validation": ["", "trim", ""],
-        "url": "Team/search"
+        "url": ""
     },{
         "name": "Member Team",
         "type": "tags",
