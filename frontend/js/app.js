@@ -19,21 +19,21 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     $stateProvider
         .state('home', {
             url: "/",
-            templateUrl: "frontend/views/template.html",
+            templateUrl: "frontend/views/index.html",
             controller: 'HomeCtrl'
         })
-        .state('categories', {
-            url: "/categories",
-            templateUrl: "frontend/views/template.html",
-            controller: 'CategoriesCtrl'
+        .state('about', {
+            url: "/about",
+            templateUrl: "frontend/views/about.html",
+            controller: 'AboutCtrl'
         })
-        .state('photographer', {
-            url: "/photographer",
-            templateUrl: "frontend/views/template.html",
-            controller: 'PhotographerCtrl'
+        .state('services', {
+            url: "/services",
+            templateUrl: "frontend/views/services.html",
+            controller: 'ServicesCtrl'
         })
-        .state('form', {
-            url: "/form",
+        .state('sub-Services', {
+            url: "/single-Service",
             templateUrl: "frontend/views/template.html",
             controller: 'FormCtrl'
         })

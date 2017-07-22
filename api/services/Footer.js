@@ -24,7 +24,7 @@ schema.plugin(uniqueValidator);
 //     incrementBy: 1
 // });
 schema.plugin(timestamps);
-module.exports = mongoose.model('About', schema);
+module.exports = mongoose.model('Footer', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {

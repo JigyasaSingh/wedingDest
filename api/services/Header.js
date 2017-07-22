@@ -12,7 +12,6 @@ var request = require("request");
 var schema = new Schema({
 name:String,
 image:String,
-
 });
 
 schema.plugin(deepPopulate, {});
@@ -24,7 +23,7 @@ schema.plugin(uniqueValidator);
 //     incrementBy: 1
 // });
 schema.plugin(timestamps);
-module.exports = mongoose.model('About', schema);
+module.exports = mongoose.model('Header', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
