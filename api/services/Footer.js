@@ -11,25 +11,8 @@ var request = require("request");
 // var generator = require('generate-password');
 // autoIncrement.initialize(mongoose);
 var schema = new Schema({
-tagline:String,
-teamId:{
-        type: Schema.Types.ObjectId,
-        ref: 'Team',
-        index: true
-    },
-headerId:{
-        type: Schema.Types.ObjectId,
-        ref: 'Header',
-        index: true
-    },
-footerId:{
-        type: Schema.Types.ObjectId,
-        ref: 'Footer',
-        index: true
-    },
-pictures:String,
-description:String,
-    
+name:String,
+image:String,  
 });
 
 schema.plugin(deepPopulate, {});

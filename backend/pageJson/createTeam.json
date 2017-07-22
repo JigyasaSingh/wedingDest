@@ -13,6 +13,28 @@
         "id": "tagline",
         "validation": ["", "trim", "unique"],
         "url": ""
+    },{
+        "name": "Footer",
+        "type": "tags",
+        "tableRef": "footerId",
+        "placeholder": "Enter footerId",
+        "id": "footerId",
+        "validation": ["", "trim", ""],
+        "url": "Footer/search",
+        "dropDownField": "name",
+        "dropDownType": "single",
+        "onView": true
+    },{
+        "name": "Header",
+        "type": "tags",
+        "tableRef": "headerId",
+        "placeholder": "Enter headerId",
+        "id": "headerId",
+        "validation": ["", "trim", ""],
+        "url": "Header/search",
+        "dropDownField": "name",
+        "dropDownType": "single",
+        "onView": true
     }],
     "action": [{
         "name": "submit",

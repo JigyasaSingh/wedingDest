@@ -17,6 +17,16 @@ var schema = new Schema({
         index: true,
         key: 'memberTeam'
     },
+    headerId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Header',
+        index: true
+    },
+    footerId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Footer',
+        index: true
+    },
     name:String,
     designation:String,
     image:String,

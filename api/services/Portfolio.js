@@ -13,7 +13,17 @@ var request = require("request");
 var schema = new Schema({
 tagline:String,
 image: [{type:String}], 
-homeImage:String,      
+homeImage:String,    
+headerId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Header',
+        index: true
+    },
+footerId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Footer',
+        index: true
+    },  
 });
 
 schema.plugin(deepPopulate, {});
@@ -23,7 +33,7 @@ module.exports = mongoose.model('Portfolio', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
-     search: function (data, callback) {
+    search: function (data, callback) {
         var Model = this;
         var Const = this(data);
         var maxRow = Config.maxRow;
@@ -56,6 +66,34 @@ var model = {
                 .keyword(options)
                 .page(options, callback);
     },
+
+    savePorfolio: function(data,callback){
+        async.waterfall([
+            function(callback){
+                var found={};
+                found.firstname="Jigyasa";
+                // var found1="Singh";
+                found.surname="Singh";
+                callback(null,found);
+            },
+            function(found,callback){
+                console.log("found",found);
+                callback(null,found);
+                // console.log("found1",found1);
+            }
+        ],function(err,complete){
+            if(err){
+                callback(err,null);
+            }else{
+                if(_.isEmpty(complete)){
+                    callback(null,[]);
+                }else{
+                    callback(null,complete);
+                }
+            }
+        });
+
+    }
     };
 
 module.exports = _.assign(module.exports, exports, model);

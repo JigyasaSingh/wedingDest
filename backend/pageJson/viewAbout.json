@@ -8,10 +8,6 @@
         "name": "Tagline",
         "isSort": "",
         "tableRef": "tagline"
-    }, {
-        "name": "Description",
-        "isSort": "",
-        "tableRef": "description"
     }],
     "action": [{
         "name": "edit",

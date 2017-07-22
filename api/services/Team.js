@@ -17,6 +17,16 @@ memberTeam: [{
         ref: 'Member',
         index: true
     }],
+headerId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Header',
+        index: true
+    },
+footerId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Footer',
+        index: true
+    },
 
     
 });
