@@ -48,6 +48,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.navigation = NavigationService.getnav(); 
     })
 
+     .controller('portfolioCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
+        $scope.template = TemplateService.changecontent("portfolio1"); //Use same name of .html file
+        $scope.menutitle = NavigationService.makeactive("Weding Destination"); //This is the Title of the Website
+        TemplateService.title = $scope.menutitle;
+        $scope.locString = [];
+        $scope.navigation = NavigationService.getnav(); 
+    })
+
+    .controller('contactCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
+        $scope.template = TemplateService.changecontent("contact"); //Use same name of .html file
+        $scope.menutitle = NavigationService.makeactive("Weding Destination"); //This is the Title of the Website
+        TemplateService.title = $scope.menutitle;
+        $scope.locString = [];
+        $scope.navigation = NavigationService.getnav(); 
+    })
+
 
 
 

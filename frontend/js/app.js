@@ -47,6 +47,17 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "frontend/views/template.html",
             controller: 'singleTeamCtrl'
         })
+         .state('portfolio1', {
+            url: "/portfolio",
+            templateUrl: "frontend/views/template.html",
+            controller: 'portfolioCtrl'
+        })
+
+        .state('contact', {
+            url: "/contact",
+            templateUrl: "frontend/views/template.html",
+            controller: 'contactCtrl'
+        })
 
         
     $locationProvider.html5Mode(isproduction);

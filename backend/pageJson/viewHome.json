@@ -12,23 +12,6 @@
         "name": "teamId",
         "isSort": "",
         "tableRef": "teamId"
-    }, {
-        "name": "sliderImage",
-        "isSort": "",
-        "tableRef": "Image"
-    },{
-        "name": "mainServices",
-        "isSort": "",
-        "tableRef": "Services"
-    },{
-
-        "name": "PortfolioId",
-        "isSort": "",
-        "tableRef": "portfolioId"
-    },{
-        "name": "ServiceId",
-        "isSort": "",
-        "tableRef": "serviceId"
     }],
     "action": [{
         "name": "edit",
