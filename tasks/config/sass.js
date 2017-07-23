@@ -7,7 +7,7 @@ module.exports = function (grunt) {
         },
         files: {}
     };
-    dev.files[folderName + "/css/import.css"] = folderName + "/sass/import.scss";
+    dev.files[folderName + "frontend/style.css"] = folderName + "/sass/import.scss";
     grunt.config.set('sass', {
         development: dev,
     });

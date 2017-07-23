@@ -1,5 +1,5 @@
 // JavaScript Document
-var firstapp = angular.module('firstapp', [
+var firstapp = angular.module('firstApp', [
     'ui.router',
     'phonecatControllers',
     'templateservicemod',
@@ -19,21 +19,21 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
     $stateProvider
         .state('home', {
             url: "/",
-            templateUrl: "frontend/views/index.html",
+            templateUrl: "frontend/views/template.html",
             controller: 'HomeCtrl'
         })
         .state('about', {
             url: "/about",
-            templateUrl: "frontend/views/about.html",
-            controller: 'AboutCtrl'
+            templateUrl: "frontend/views/template.html",
+            controller: 'aboutCtrl'
         })
-        .state('services', {
-            url: "/services",
-            templateUrl: "frontend/views/services.html",
-            controller: 'ServicesCtrl'
+        .state('photographer', {
+            url: "/photographer",
+            templateUrl: "frontend/views/template.html",
+            controller: 'PhotographerCtrl'
         })
-        .state('sub-Services', {
-            url: "/single-Service",
+        .state('form', {
+            url: "/form",
             templateUrl: "frontend/views/template.html",
             controller: 'FormCtrl'
         })

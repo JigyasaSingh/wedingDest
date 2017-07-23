@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="firstApp">
 
-<head ng-controller="headerCtrl">
+<head ng-controller="HomeCtrl">
     <meta charset="utf-8">
     <base href="/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,7 @@
     <div class="repeated-item" ui-view></div>
 
 
-    <link rel="stylesheet" type="text/css" href="css/import.css" />
+    <link rel="stylesheet" type="text/css" href="frontend/views/content/style.css" />
 
     <script>
         var adminurl = "<%= ((typeof adminurl) == "undefined") ? "" : adminurl  %>";
