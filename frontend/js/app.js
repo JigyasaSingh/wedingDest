@@ -27,107 +27,28 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             templateUrl: "frontend/views/template.html",
             controller: 'aboutCtrl'
         })
-        .state('photographer', {
-            url: "/photographer",
+        .state('services', {
+            url: "/services",
             templateUrl: "frontend/views/template.html",
-            controller: 'PhotographerCtrl'
+            controller: 'servicesCtrl'
         })
-        .state('form', {
-            url: "/form",
+        .state('single-services', {
+            url: "/sub-services",
             templateUrl: "frontend/views/template.html",
-            controller: 'FormCtrl'
+            controller: 'subServicesCtrl'
         })
-        .state('feature-photographer', {
-            url: "/feature-photographer",
+        .state('team', {
+            url: "/team",
             templateUrl: "frontend/views/template.html",
-            controller: 'FeaturPCtrl'
+            controller: 'teamCtrl'
         })
-        .state('users', {
-            url: "/users",
+         .state('single-team', {
+            url: "/single-team",
             templateUrl: "frontend/views/template.html",
-            controller: 'UsersCtrl'
-        })
-        .state('user-profile', {
-            url: "/user-profile/:userid",
-            templateUrl: "frontend/views/template.html",
-            controller: 'UserProfileCtrl'
+            controller: 'singleTeamCtrl'
         })
 
-        .state('wild-photographer', {
-            url: "/wild-photographer/:catid/:catName/:photoLoc",
-            templateUrl: "frontend/views/template.html",
-            controller: 'WildPhotoCtrl'
-        })
-        .state('freemember', {
-            url: "/freemember",
-            templateUrl: "frontend/views/template.html",
-            controller: 'FreeMemberCtrl'
-        })
-        .state('silversubscribe', {
-            url: "/silversubscribe",
-            templateUrl: "frontend/views/template.html",
-            controller: 'SilverSubscribeCtrl'
-        })
-        .state('aboutus', {
-            url: "/aboutus",
-            templateUrl: "frontend/views/template.html",
-            controller: 'aboutusCtrl'
-        })
-        .state('privacy-policy', {
-            url: "/privacy-policy",
-            templateUrl: "frontend/views/template.html",
-            controller: 'privacyPolicyCtrl'
-        })
-        .state('terms', {
-            url: "/terms",
-            templateUrl: "frontend/views/template.html",
-            controller: 'termsCtrl'
-        })
-        .state('contact-us', {
-            url: "/contact-us",
-            templateUrl: "frontend/views/template.html",
-            controller: 'contactUsCtrl'
-        })
-        .state('competition', {
-            url: "/competition",
-            templateUrl: "frontend/views/template.html",
-            controller: 'competitionCtrl'
-        })
-        .state('photo-contest', {
-            url: "/photo-contest",
-            templateUrl: "frontend/views/template.html",
-            controller: 'photoContestCtrl'
-        })
-        .state('thanks', {
-            url: "/thanks/:id",
-            templateUrl: "frontend/views/template.html",
-            controller: 'thanksCtrl'
-        })
-        .state('thanks-contest', {
-            url: "/thanks-contest",
-            templateUrl: "frontend/views/template.html",
-            controller: 'ThanksContestCtrl'
-        })
-        .state('thanks-silver', {
-            url: "/thanks-silver",
-            templateUrl: "frontend/views/template.html",
-            controller: 'thanksSilverCtrl'
-        })
-        .state('error', {
-            url: "/error",
-            templateUrl: "frontend/views/template.html",
-            controller: 'errorCtrl'
-        })
-        .state('becomefp', {
-            url: "/becomefp",
-            templateUrl: "frontend/views/template.html",
-            controller: 'becomeFpCtrl'
-        })
-        .state('thanks-gold', {
-            url: "/thanks-gold",
-            templateUrl: "frontend/views/template.html",
-            controller: 'thanksGoldCtrl'
-        });
+        
     $locationProvider.html5Mode(isproduction);
 });
 

@@ -44,44 +44,40 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="logo-area">
-                                <a href="index.html"><img src="frontend/views/content/img/logo.png" alt=""></a>
+                                <a ui-sref="home"><img src="frontend/views/content/img/logo.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="main-menu-area">
                                 <nav>
                                     <ul id="nav">
-                                        <li><a href="frontend/views/content/index.html">Home</a>                                            
-                                            <ul>
-                                                <li><a href="frontend/views/content/index.html">Home 1</a></li>
-                                                <!--<li><a href="index2.html">Home 2</a></li>-->
-                                            </ul>
+                                        <li><a ui-sref="home">Home</a>                                            
                                         </li> 
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="services.html">Services</a>                                            
+                                        <li><a ui-sref="about">About</a></li>
+                                        <li><a ui-sref="services">Services</a>                                            
                                             <ul>
-                                                <li><a href="single-services.html">Single Services</a></li>
+                                                <li><a ui-sref="single-Services">Single Services</a></li>
                                             </ul>
                                         </li>                            
-                                        <li><a href="blog.html">Blog</a>                                            
+                                        <!--<li><a href="blog.html">Blog</a>                                            
                                             <ul>
                                                 <li><a href="single-blog.html">Blog Details</a></li>
                                             </ul>
-                                        </li>
+                                        </li>-->
                                         <li><a href="#">Pages</a>
                                             <ul>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="single-team.html">Single Team</a></li>
-                                                <li><a href="portfolio1.html">Portfolio 1</a></li>
+                                                <li><a ui-sref="team">Team</a></li>
+                                                <li><a ui-sref="single-team">Single Team</a></li>
+                                                <li><a ui-sref="portfolio1">Portfolio 1</a></li>
                                                 <!--<li><a href="portfolio2.html">Portfolio 2</a></li>-->
                                                 <!--<li><a href="portfolio3.html">Portfolio 3</a></li>-->
                                                 <!--<li><a href="portfolio4.html">Portfolio 4</a></li>-->
-                                                <li><a href="shop.html">Shop</a></li>
+                                                <!--<li><a href="shop.html">Shop</a></li>-->
                                                 <!--<li><a href="single-product.html">Single Product</a></li>-->
                                                 <!--<li><a href="404.html">404 Page</a></li>-->
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a ui-sref="contact">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -110,37 +106,33 @@
                     <div class="mobile-menu">
                       <nav id="dropdown">
                         <ul>
-                            <li><a href="index.html">Home</a>                                            
-                                <ul>
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <!--<li><a href="index2.html">Home 2</a></li>-->
-                                </ul>
+                            <li><a ui-sref="home">Home</a>                                            
                             </li> 
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a>                                            
+                            <li><a ui-sref="about">About</a></li>
+                            <li><a ui-sref="services">Services</a>                                            
                                 <ul>
-                                    <li><a href="single-services.html">Single Services</a></li>
+                                    <li><a ui-sref="single-services">Single Services</a></li>
                                 </ul>
                             </li>                            
-                            <li><a href="blog.html">Blog</a>                                            
+                            <!--<li><a ui-sref="blog.html">Blog</a>                                            -->
+                                <!--<ul>
+                                    <li><a ui-sref="single-blog.html">Blog Details</a></li>
+                                </ul>
+                            </li>-->
+                            <li><a ui-sref="#">Pages</a>
                                 <ul>
-                                    <li><a href="single-blog.html">Blog Details</a></li>
+                                    <li><a ui-sref="team">Team</a></li>
+                                    <li><a ui-sref="single-team">Single Team</a></li>
+                                    <li><a ui-sref="portfolio1">Portfolio 1</a></li>
+                                    <!--<li><a ui-sref="portfolio2.html">Portfolio 2</a></li>
+                                    <li><a ui-sref="portfolio3.html">Portfolio 3</a></li>
+                                    <li><a ui-sref="portfolio4.html">Portfolio 4</a></li>
+                                    <li><a ui-sref="shop.html">Shop</a></li>
+                                    <li><a ui-sref="single-product.html">Single Product</a></li>
+                                    <li><a ui-sref="404.html">404 Page</a></li>-->
                                 </ul>
                             </li>
-                            <li><a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="team.html">Team</a></li>
-                                    <li><a href="single-team.html">Single Team</a></li>
-                                    <li><a href="portfolio1.html">Portfolio 1</a></li>
-                                    <li><a href="portfolio2.html">Portfolio 2</a></li>
-                                    <li><a href="portfolio3.html">Portfolio 3</a></li>
-                                    <li><a href="portfolio4.html">Portfolio 4</a></li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a ui-sref="contact">Contact</a></li>
                         </ul>
                       </nav>
                     </div>          
@@ -510,25 +502,25 @@
                                     <div role="tabpanel" class="tab-pane active" id="home">
                                         <div class="groom-area">
                                             <div class="single-groom">
-                                                <a href="single-product.html"><img src="img/product/1.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/1.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
                                             </div>
                                             <div class="single-groom">
-                                                <a href="single-product.html"><img src="img/product/2.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/2.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
                                             </div>
                                             <div class="single-groom">
-                                                <a href="single-product.html"><img src="img/product/3.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/3.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
                                             </div>
                                             <div class="single-groom">
-                                                <a href="single-product.html"><img src="img/product/4.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/4.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
@@ -538,25 +530,25 @@
                                     <div role="tabpanel" class="tab-pane" id="profile">
                                         <div class="bride-area">
                                             <div class="single-bride">
-                                                <a href="single-product.html"><img src="img/product/5.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/5.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
                                             </div>
                                             <div class="single-bride">
-                                                <a href="single-product.html"><img src="img/product/6.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/6.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
                                             </div>
                                             <div class="single-bride">
-                                                <a href="single-product.html"><img src="img/product/7.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/7.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>
                                             </div>
                                             <div class="single-bride">
-                                                <a href="single-product.html"><img src="img/product/5.jpg" alt=""></a>                          
+                                                <a href="single-product.html"><img src="frontend/views/content/img/product/5.jpg" alt=""></a>                          
                                                 <div class="details">
                                                     <a href="single-team.html">Details</a>
                                                 </div>

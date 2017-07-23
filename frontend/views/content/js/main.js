@@ -6,7 +6,7 @@
 ------------------------------ */
 
   $('nav#dropdown').meanmenu({
-    siteLogo: "<a href='index.html'><img src='img/mobile-logo.png' /></a>"
+    siteLogo: "<a href='index.html'><img src='frontend/views/content/img/mobile-logo.png' /></a>"
   })
 
       equalHeight();
@@ -63,11 +63,11 @@
 	   max: 600,
 	   values: [ 60, 570 ],
 	   slide: function( event, ui ) {
-		$( "#amount" ).val( "£" + ui.values[ 0 ] + " - £" + ui.values[ 1 ] );
+		$( "#amount" ).val( "ï¿½" + ui.values[ 0 ] + " - ï¿½" + ui.values[ 1 ] );
 	   }
 	  });
-	  $( "#amount" ).val( "£" + $( "#slider-range" ).slider( "values", 0 ) +
-	   " - £" + $( "#slider-range" ).slider( "values", 1 ) );  
+	  $( "#amount" ).val( "ï¿½" + $( "#slider-range" ).slider( "values", 0 ) +
+	   " - ï¿½" + $( "#slider-range" ).slider( "values", 1 ) );  
 	   
 /*--------------------------
  scrollUp
