@@ -8,7 +8,7 @@
     "fields": [{
         "name": "Image",
         "type": "image",
-        "tableRef": "pictures",
+        "tableRef": "image",
         "size": "250 x 250",
         "placeholder": "Upload photo",
         "id": "image",
@@ -16,7 +16,30 @@
         "Onview": true,
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },   {
+    }, {
+        "name": "Image1",
+        "type": "image",
+        "tableRef": "image1",
+        "size": "250 x 250",
+        "placeholder": "Upload photo",
+        "id": "image1",
+        "option": "single",
+        "Onview": true,
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Image2",
+        "type": "image",
+        "tableRef": "image2",
+        "size": "250 x 250",
+        "placeholder": "Upload photo",
+        "id": "image2",
+        "option": "single",
+        "Onview": true,
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },
+      {
         "name": "Name",
         "type": "text",
         "tableRef": "name",

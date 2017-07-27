@@ -14,6 +14,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.locString = [];
         $scope.navigation = NavigationService.getnav(); 
+        $scope.url="About/getAciveAbout"
+        NavigationService.callApi($scope.url, function (data) {     
+            $scope.about = data.data[0];
+            // $scope.describe.push($scope.description);
+            console.log("data of about:",$scope.about);
+        });
     })
 
     .controller('servicesCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {

@@ -157,14 +157,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="about-us-content">
                             <h2>Our <span> History</span></h2>
-                            <p><span>Dimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy texen book. It has survived not only five centuries.</span></p>
-                            <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining esseSimply dummy text of the printing and typesetting industry.</p>
-                            <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining esseSimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.</p>
+                            <rules ng-bind-html="about.description">
+                             </rules>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="about-us-feature-image">
-                            <img src="frontend/views/content/img/about-feature.png" alt="">
+                            <img ng-src="data:image/jpeg;base64,{{about.pictures}}" alt=">
                         </div>
                     </div>
                 </div>

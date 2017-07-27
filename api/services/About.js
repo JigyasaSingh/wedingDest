@@ -11,6 +11,8 @@ var request = require("request");
 // var generator = require('generate-password');
 // autoIncrement.initialize(mongoose);
 var schema = new Schema({
+name:String,
+active:Boolean,
 tagline:String,
 teamId:{
         type: Schema.Types.ObjectId,
@@ -29,6 +31,7 @@ footerId:{
     },
 pictures:String,
 description:String,
+
     
 });
 
@@ -47,6 +50,7 @@ var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
 
     saveAbout:function(data,callback){
+        console.log("data",data);
         About.saveData(data, function (err, athleteData) {
                             if (err) {
                                 console.log("err", err);
@@ -61,5 +65,114 @@ var model = {
                         });
 
     },
+
+    getAggregatePipeLine: function (data) {
+
+        var pipeline = [
+           // Stage 1
+           {
+			$match: {
+			"active":true
+			}
+		},
+		{
+			$lookup: {
+			    "from" : "teams",
+			    "localField" : "teamId",
+			    "foreignField" : "_id",
+			    "as" : "teamId"
+			}
+		},
+
+		// Stage 2
+		{
+			$unwind: {
+			    path : "$teamId",
+			    
+			}
+		},
+
+		// Stage 3
+		{
+			$lookup: {
+			    "from" : "members",
+			    "localField" : "teamId.memberTeam",
+			    "foreignField" : "_id",
+			    "as" : "teamId.memberTeam"
+			}
+		},
+
+		// Stage 4
+		{
+			$lookup: {
+			    "from" : "headers",
+			    "localField" : "headerId",
+			    "foreignField" : "_id",
+			    "as" : "headerId"
+			}
+		},
+
+		// Stage 5
+		{
+			$unwind: {
+			    path : "$headerId",
+			}
+		},
+
+		// Stage 6
+		{
+			$lookup: {
+			    "from" : "footers",
+			    "localField" : "footerId",
+			    "foreignField" : "_id",
+			    "as" : "footerId"
+			}
+		},
+
+		// Stage 7
+		{
+			$unwind: {
+			    path : "$footerId",
+			}
+		},
+
+        ];
+        return pipeline;
+    },
+
+
+    getAciveAbout:function(data,callback){
+        async.waterfall([
+                function (callback) {
+                    var pipeLine = About.getAggregatePipeLine(data);
+                    About.aggregate(pipeLine, function (err, complete) {
+                                        if (err) {
+                                            console.log(err);
+                                            callback(err, "error in mongoose");
+                                        } else {
+                                            if (_.isEmpty(complete)) {
+                                                callback(null, []);
+                                            } else {
+                                                callback(null, complete);
+                                            }
+                                        }
+                                    });
+                }
+            ],
+            function (err, data2) {
+                if (err) {
+                    console.log(err);
+                    callback(null, []);
+                } else if (data2) {
+                    if (_.isEmpty(data2)) {
+                        callback(null, []);
+                    } else {
+                        callback(null, data2);
+                    }
+                }
+            });
+    },
+
+
 };
 module.exports = _.assign(module.exports, exports, model);

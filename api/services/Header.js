@@ -12,6 +12,8 @@ var request = require("request");
 var schema = new Schema({
 name:String,
 image:String,
+image1:String,
+image2:String,
 });
 
 schema.plugin(deepPopulate, {});
