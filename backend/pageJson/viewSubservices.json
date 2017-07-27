@@ -39,7 +39,7 @@
         "action": "createSubServices"
     }],
     "apiCall": {
-        "url": "User/search",
+        "url": "SubServices/search",
         "params": "_id"
     }
 }

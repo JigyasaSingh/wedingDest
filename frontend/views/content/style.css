@@ -595,7 +595,7 @@ div.read-more a:hover {
   padding: 90px 0;
   background-size: cover;
   background-position: center center;
-  background: url(img/banner.png) no-repeat;
+  /*background: url(img/banner.png) no-repeat;*/
 }
 .home-page-banner-area h1 {
   color: #ffffff;
@@ -635,7 +635,7 @@ div.read-more a:hover {
 9.Home Page Team Start Here 
 ---------------------------------------*/
 .home-page-team-area {
-  padding: 100px 0;
+  padding: 10px 0;
   background: url(img/team/bg.jpg) no-repeat;
   background-size: cover;
 }

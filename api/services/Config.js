@@ -6,7 +6,7 @@
  */
 
 
-var MaxImageSize = 1600;
+var MaxImageSize = 3200;
 
 
 
@@ -129,19 +129,19 @@ var models = {
                 if (err) {
                     callback(err, null);
                 } else {
-                    if (image.bitmap.width > MaxImageSize || image.bitmap.height > MaxImageSize) {
-                        image.scaleToFit(MaxImageSize, MaxImageSize).getBuffer(Jimp.AUTO, function (err, imageBuf) {
-                            var bufferStream = new stream.PassThrough();
-                            bufferStream.end(imageBuf);
-                            bufferStream.pipe(writestream);
-                        });
-                    } else {
+                    // if (image.bitmap.width > MaxImageSize || image.bitmap.height > MaxImageSize) {
+                    //     image.scaleToFit(MaxImageSize, MaxImageSize).getBuffer(Jimp.AUTO, function (err, imageBuf) {
+                    //         var bufferStream = new stream.PassThrough();
+                    //         bufferStream.end(imageBuf);
+                    //         bufferStream.pipe(writestream);
+                    //     });
+                    // } else {
                         image.getBuffer(Jimp.AUTO, function (err, imageBuf) {
                             var bufferStream = new stream.PassThrough();
                             bufferStream.end(imageBuf);
                             bufferStream.pipe(writestream);
                         });
-                    }
+                    // }
 
                 }
 

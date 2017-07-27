@@ -59,5 +59,92 @@ var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
             
     },
 
+
+ getAggregatePipeLine: function (data) {
+
+        var pipeline = [
+           // Stage 1
+		{
+			$lookup: {
+			    "from" : "headers",
+			    "localField" : "headerId",
+			    "foreignField" : "_id",
+			    "as" : "headerId"
+			}
+		},
+
+		// Stage 2
+		{
+			$unwind: {
+			    path : "$headerId",
+			    
+			}
+		},
+
+		// Stage 3
+		{
+			$lookup: {
+			    "from" : "footers",
+			    "localField" : "footerId",
+			    "foreignField" : "_id",
+			    "as" : "footerId"
+			}
+		},
+
+		// Stage 4
+		{
+			$unwind: {
+			    path : "$footerId",
+			    
+			}
+		},
+
+		// Stage 5
+		{
+			$lookup: {
+			    "from" : "subservices",
+			    "localField" : "subService",
+			    "foreignField" : "_id",
+			    "as" : "subService"
+			}
+		},
+
+
+        ];
+        return pipeline;
+    },
+
+
+    getService:function(data,callback){
+        async.waterfall([
+                function (callback) {
+                    var pipeLine = Services.getAggregatePipeLine(data);
+                    Services.aggregate(pipeLine, function (err, complete) {
+                                        if (err) {
+                                            console.log(err);
+                                            callback(err, "error in mongoose");
+                                        } else {
+                                            if (_.isEmpty(complete)) {
+                                                callback(null, []);
+                                            } else {
+                                                callback(null, complete);
+                                            }
+                                        }
+                                    });
+                }
+            ],
+            function (err, data2) {
+                if (err) {
+                    console.log(err);
+                    callback(null, []);
+                } else if (data2) {
+                    if (_.isEmpty(data2)) {
+                        callback(null, []);
+                    } else {
+                        callback(null, data2);
+                    }
+                }
+            });
+    }
     };
 module.exports = _.assign(module.exports, exports, model);
