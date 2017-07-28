@@ -40,6 +40,8 @@ var schema = new Schema({
     
 });
 
+
+
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 // schema.plugin(autoIncrement.plugin, {
@@ -53,6 +55,113 @@ module.exports = mongoose.model('Member', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
+    getAggregatePipeLine: function (data) {
+
+        var pipeline = [
+           // Stage 1
+           {
+			$match: {
+			"active":true
+			}
+		},
+		{
+			$lookup: {
+			    "from" : "teams",
+			    "localField" : "teamId",
+			    "foreignField" : "_id",
+			    "as" : "teamId"
+			}
+		},
+
+		// Stage 2
+		{
+			$unwind: {
+			    path : "$teamId",
+			    
+			}
+		},
+
+		// Stage 3
+		{
+			$lookup: {
+			    "from" : "members",
+			    "localField" : "teamId.memberTeam",
+			    "foreignField" : "_id",
+			    "as" : "teamId.memberTeam"
+			}
+		},
+
+		// Stage 4
+		{
+			$lookup: {
+			    "from" : "headers",
+			    "localField" : "headerId",
+			    "foreignField" : "_id",
+			    "as" : "headerId"
+			}
+		},
+
+		// Stage 5
+		{
+			$unwind: {
+			    path : "$headerId",
+			}
+		},
+
+		// Stage 6
+		{
+			$lookup: {
+			    "from" : "footers",
+			    "localField" : "footerId",
+			    "foreignField" : "_id",
+			    "as" : "footerId"
+			}
+		},
+
+		// Stage 7
+		{
+			$unwind: {
+			    path : "$footerId",
+			}
+		},
+
+        ];
+        return pipeline;
+    },
+
+
+    getAciveAbout:function(data,callback){
+        async.waterfall([
+                function (callback) {
+                    var pipeLine = About.getAggregatePipeLine(data);
+                    About.aggregate(pipeLine, function (err, complete) {
+                                        if (err) {
+                                            console.log(err);
+                                            callback(err, "error in mongoose");
+                                        } else {
+                                            if (_.isEmpty(complete)) {
+                                                callback(null, []);
+                                            } else {
+                                                callback(null, complete);
+                                            }
+                                        }
+                                    });
+                }
+            ],
+            function (err, data2) {
+                if (err) {
+                    console.log(err);
+                    callback(null, []);
+                } else if (data2) {
+                    if (_.isEmpty(data2)) {
+                        callback(null, []);
+                    } else {
+                        callback(null, data2);
+                    }
+                }
+            });
+    },
+
 
     };
 

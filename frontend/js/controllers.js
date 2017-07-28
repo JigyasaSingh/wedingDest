@@ -50,6 +50,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.locString = [];
         $scope.navigation = NavigationService.getnav(); 
+
+        $scope.url="SubServices/getAllName"
+        NavigationService.callApi($scope.url, function (data) {     
+            $scope.subService = data.data;
+            // $scope.describe.push($scope.description);
+            console.log("data of about:",$scope.subService);
+        });
+
+        $scope.getService=function(paramData){
+        $scope.url1="SubServices/getOneName"
+        $scope.formData={};
+        $scope.formData._id=paramData;
+        NavigationService.apiCallWithData($scope.url1,$scope.formData, function (data) {     
+            $scope.oneService = data.data;
+            // $scope.describe.push($scope.description);
+            console.log("data of about:",$scope.oneService);
+        });
+        }
     })
 
         .controller('singleTeamCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {

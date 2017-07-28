@@ -19,6 +19,7 @@ var schema = new Schema({
     
 });
 
+
 schema.plugin(deepPopulate, {});
 schema.plugin(uniqueValidator);
 // schema.plugin(autoIncrement.plugin, {
@@ -32,6 +33,48 @@ module.exports = mongoose.model('Management', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
+	getAggregatePipeLine: function (data) {
+
+        var pipeline = [
+          
+
+        ];
+        return pipeline;
+    },
+
+
+    getManagement:function(data,callback){
+        async.waterfall([
+                function (callback) {
+                    var pipeLine = Management.getAggregatePipeLine(data);
+                    Management.aggregate(pipeLine, function (err, complete) {
+                                        if (err) {
+                                            console.log(err);
+                                            callback(err, "error in mongoose");
+                                        } else {
+                                            if (_.isEmpty(complete)) {
+                                                callback(null, []);
+                                            } else {
+                                                callback(null, complete);
+                                            }
+                                        }
+                                    });
+                }
+            ],
+            function (err, data2) {
+                if (err) {
+                    console.log(err);
+                    callback(null, []);
+                } else if (data2) {
+                    if (_.isEmpty(data2)) {
+                        callback(null, []);
+                    } else {
+                        callback(null, data2);
+                    }
+                }
+            });
+    },
+
 
     };
 

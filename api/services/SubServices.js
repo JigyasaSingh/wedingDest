@@ -38,10 +38,34 @@ module.exports = mongoose.model('SubServices', schema);
 
 var exports = _.cloneDeep(require("sails-wohlig-service")(schema));
 var model = {
+getAllName:function(data,callback){
+	SubServices.find().exec(function (err, complete) {
+                                        if (err) {
+                                            callback(err, null);
+                                        } else if (_.isEmpty(complete)) {
+                                            callback(null, []);
+                                        } else {                                       
+                                            callback(null, complete);
+                                        }
+                                    });
+},
 
+getOneName:function(data,callback){
+	SubServices.findOne({_id:data._id}).exec(function (err, complete) {
+                                        if (err) {
+                                            callback(err, null);
+                                        } else if (_.isEmpty(complete)) {
+                                            callback(null, []);
+                                        } else {                                       
+                                            callback(null, complete);
+                                        }
+                                    });
+}
  
   
 
-    };
+
+};
+
 
 module.exports = _.assign(module.exports, exports, model);

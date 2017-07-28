@@ -164,6 +164,9 @@ var model = {
             data.save(function () {});
         });
     }
+    
 
 };
+
+    
 module.exports = _.assign(module.exports, exports, model);
