@@ -1,18 +1,8 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
-    saveAbout: function (req, res) {
+    getMember: function (req, res) {
         if (req.body) {
-            About.saveAbout(req.body, res.callback);
-        } else {
-            res.json({
-                value: false,
-                data: "Invalid Request"
-            });
-        }
-    },
-    getAciveAbout: function (req, res) {
-        if (req.body) {
-            About.getAciveAbout(req.body, res.callback);
+            Member.getMember(req.body, res.callback);
         } else {
             res.json({
                 value: false,

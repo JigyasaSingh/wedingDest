@@ -168,21 +168,21 @@
         <div class="home-page-team-area">
             <div class="container">
                 <div class="row total-team">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" ng-repeat="item in team.memberTeam">
                         <div class="total-team-area">
                             <div class="single-team-area">
-                                <a href="single-team"><img src="frontend/views/content/img/team/1.png" alt=""></a>
+                                <a href="single-team"><img src="http://localhost:1337/api/upload/readFile?file={{item.image}}" alt=""></a>
                                 <div class="details">
                                     <a href="single-team">Details</a>
                                 </div>
                             </div>
                         </div>                            
                         <div class="team-detals-area">
-                            <h3><a href="single-team.html">Tina Jahan</a></h3>
-                            <p class="designation">Wedding Coordinator</p>
+                            <h3><a href="single-team">{{item.name}}</a></h3>
+                            <p class="designation">{{item.description}}</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                         <div class="total-team-area">
                             <div class="single-team-area">
                                 <a href="single-team.html"><img src="frontend/views/content/img/team/2.png" alt=""></a>
@@ -251,7 +251,7 @@
                             <h3><a href="single-team.html">Karim Box</a></h3>
                             <p class="designation">Wedding Coordinator</p>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

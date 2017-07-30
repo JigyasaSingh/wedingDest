@@ -61,7 +61,7 @@ var model = {
            // Stage 1
            {
 			$match: {
-			"active":true
+			"_id":objectid(data._id)
 			}
 		},
 		{
@@ -77,64 +77,21 @@ var model = {
 		{
 			$unwind: {
 			    path : "$teamId",
-			    
+			  
 			}
-		},
-
-		// Stage 3
-		{
-			$lookup: {
-			    "from" : "members",
-			    "localField" : "teamId.memberTeam",
-			    "foreignField" : "_id",
-			    "as" : "teamId.memberTeam"
-			}
-		},
-
-		// Stage 4
-		{
-			$lookup: {
-			    "from" : "headers",
-			    "localField" : "headerId",
-			    "foreignField" : "_id",
-			    "as" : "headerId"
-			}
-		},
-
-		// Stage 5
-		{
-			$unwind: {
-			    path : "$headerId",
-			}
-		},
-
-		// Stage 6
-		{
-			$lookup: {
-			    "from" : "footers",
-			    "localField" : "footerId",
-			    "foreignField" : "_id",
-			    "as" : "footerId"
-			}
-		},
-
-		// Stage 7
-		{
-			$unwind: {
-			    path : "$footerId",
-			}
-		},
-
+		}
         ];
         return pipeline;
     },
 
 
-    getAciveAbout:function(data,callback){
+    getMember:function(data,callback){
+        var complete={};
+        complete.coTeam=[];
         async.waterfall([
                 function (callback) {
-                    var pipeLine = About.getAggregatePipeLine(data);
-                    About.aggregate(pipeLine, function (err, complete) {
+                    var pipeLine = Member.getAggregatePipeLine(data);
+                    Member.aggregate(pipeLine, function (err, complete) {
                                         if (err) {
                                             console.log(err);
                                             callback(err, "error in mongoose");
@@ -142,27 +99,69 @@ var model = {
                                             if (_.isEmpty(complete)) {
                                                 callback(null, []);
                                             } else {
-                                                callback(null, complete);
+                                                var finalData=complete[0];
+                                                callback(null, finalData);
                                             }
                                         }
                                     });
+                },
+                function(finalData,callback){
+                    var total=finalData;
+                    total.temp=[];
+                    async.eachSeries(finalData.teamId.memberTeam,function(n,innercallback){
+                        async.waterfall([
+                function (callback) {
+                              if(!finalData._id.equals(n)){
+                                  Member.findOne({_id:n}).exec(function (err, memberData) {
+                                      if(err){
+                                          callback(err,null);
+                                      }else{
+                                          callback(null,memberData);
+                                      }
+                                    }); 
+                              }else{
+                                  var memberData={};
+                                  callback(null,memberData);
+                              }},
+                              function(memberData,callback){
+                                  if(!_.isEmpty(memberData)){
+                                    total.temp.push(memberData);
+                                  }
+                                    innercallback(null,total); 
+                              }
+                              ]
+                              ,function (err, total) {
+                                   if (err) {
+                                    console.log(err);
+                                    callback(null, []);
+                                    } else if (total) {
+                                      if (_.isEmpty(total)) {
+                                         callback(null, []);
+                                         } else {
+                                         callback(null, total);
+                                         }
+                                       }
+                                      });
+                                                             
+                                  },function (err) {
+                                callback(null,total);
+                            });
+              
                 }
             ],
-            function (err, data2) {
+            function (err, total) {
                 if (err) {
                     console.log(err);
                     callback(null, []);
-                } else if (data2) {
-                    if (_.isEmpty(data2)) {
+                } else if (total) {
+                    if (_.isEmpty(total)) {
                         callback(null, []);
                     } else {
-                        callback(null, data2);
+                        callback(null, total);
                     }
                 }
             });
     },
-
-
     };
 
 module.exports = _.assign(module.exports, exports, model);

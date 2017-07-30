@@ -36,12 +36,24 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         });
     })
 
-    .controller('teamCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
+    .controller('teamCtrl', function ($state, $scope, $rootScope, $stateParams,TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
         $scope.template = TemplateService.changecontent("team"); //Use same name of .html file
         $scope.menutitle = NavigationService.makeactive("Weding Destination"); //This is the Title of the Website
         TemplateService.title = $scope.menutitle;
         $scope.locString = [];
         $scope.navigation = NavigationService.getnav(); 
+         $scope.url="Team/getTeam"
+        NavigationService.callApi($scope.url, function (data) {     
+            $scope.team = data.data[0];
+            // $scope.describe.push($scope.description);
+            console.log("data of team:",$scope.team);
+        });
+
+        $scope.singleTeam=function(paramData){
+              $state.go('single-team', {
+                        id: paramData
+                    })
+        }
     })
 
     .controller('subServicesCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
@@ -70,12 +82,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         }
     })
 
-        .controller('singleTeamCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
+        .controller('singleTeamCtrl', function ($state, $scope, $rootScope,$stateParams, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {
         $scope.template = TemplateService.changecontent("single-team"); //Use same name of .html file
         $scope.menutitle = NavigationService.makeactive("Weding Destination"); //This is the Title of the Website
         TemplateService.title = $scope.menutitle;
         $scope.locString = [];
         $scope.navigation = NavigationService.getnav(); 
+        $scope._id=$stateParams.id;
+        
+
     })
 
      .controller('portfolioCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {

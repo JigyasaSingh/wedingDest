@@ -135,82 +135,24 @@ var model = {
 
         var pipeline = [
            // Stage 1
-           {
-			$match: {
-			"active":true
-			}
-		},
-		{
-			$lookup: {
-			    "from" : "teams",
-			    "localField" : "teamId",
-			    "foreignField" : "_id",
-			    "as" : "teamId"
-			}
-		},
-
-		// Stage 2
-		{
-			$unwind: {
-			    path : "$teamId",
-			    
-			}
-		},
-
-		// Stage 3
 		{
 			$lookup: {
 			    "from" : "members",
-			    "localField" : "teamId.memberTeam",
+			    "localField" : "memberTeam",
 			    "foreignField" : "_id",
-			    "as" : "teamId.memberTeam"
+			    "as" : "memberTeam"
 			}
 		},
-
-		// Stage 4
-		{
-			$lookup: {
-			    "from" : "headers",
-			    "localField" : "headerId",
-			    "foreignField" : "_id",
-			    "as" : "headerId"
-			}
-		},
-
-		// Stage 5
-		{
-			$unwind: {
-			    path : "$headerId",
-			}
-		},
-
-		// Stage 6
-		{
-			$lookup: {
-			    "from" : "footers",
-			    "localField" : "footerId",
-			    "foreignField" : "_id",
-			    "as" : "footerId"
-			}
-		},
-
-		// Stage 7
-		{
-			$unwind: {
-			    path : "$footerId",
-			}
-		},
-
         ];
         return pipeline;
     },
 
 
-    getAciveAbout:function(data,callback){
+    getTeam:function(data,callback){
         async.waterfall([
                 function (callback) {
-                    var pipeLine = About.getAggregatePipeLine(data);
-                    About.aggregate(pipeLine, function (err, complete) {
+                    var pipeLine = Team.getAggregatePipeLine(data);
+                    Team.aggregate(pipeLine, function (err, complete) {
                                         if (err) {
                                             console.log(err);
                                             callback(err, "error in mongoose");

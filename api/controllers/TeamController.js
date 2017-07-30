@@ -21,9 +21,9 @@ var controller = {
             });
         }
     },
-    getAciveAbout: function (req, res) {
+    getTeam: function (req, res) {
         if (req.body) {
-            About.getAciveAbout(req.body, res.callback);
+            Team.getTeam(req.body, res.callback);
         } else {
             res.json({
                 value: false,
