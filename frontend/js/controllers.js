@@ -20,6 +20,12 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // $scope.describe.push($scope.description);
             console.log("data of about:",$scope.about);
         });
+
+         $scope.singleTeam=function(paramData){
+              $state.go('single-team', {
+                        id: paramData
+                    })
+        }
     })
 
     .controller('servicesCtrl', function ($state, $scope, $rootScope, TemplateService, NavigationService, $timeout, $location, anchorSmoothScroll, $uibModal) {

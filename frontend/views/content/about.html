@@ -63,7 +63,7 @@
                                         <li><a ui-sref="#">Pages</a>
                                             <ul>
                                                 <li><a ui-sref="team">Team</a></li>
-                                                <li><a ui-sref="single-team">Single Team</a></li>
+                                                <!--<li><a ui-sref="single-team">Single Team</a></li>-->
                                                 <li><a ui-sref="portfolio1">Portfolio </a></li>
                                                 <!--<li><a ui-sref="portfolio2.html">Portfolio 2</a></li>
                                                 <li><a ui-sref="portfolio3.html">Portfolio 3</a></li>
@@ -113,7 +113,7 @@
                             <li><a ui-sref="#">Pages</a>
                                 <ul>
                                     <li><a ui-sref="team">Team</a></li>
-                                    <li><a ui-sref="single">Single Team</a></li>
+                                    <!--<li><a ui-sref="single">Single Team</a></li>-->
                                     <li><a ui-sref="portfolio1">Portfolio</a></li>
                                     <!--<li><a ui-sref="portfolio2.html">Portfolio 2</a></li>
                                     <li><a ui-sref="portfolio3.html">Portfolio 3</a></li>
@@ -134,7 +134,8 @@
         </header>
         <!-- Header Area End Here -->
         <!-- Page Header Section Start Here -->
-        <div class="page-header-area" ng-style="{'background-image': 'url(http://localhost:1337/api/upload/readFile?file={{about.headerId.image}})'}">
+        <div class="page-header-area">
+        <!--<div class="page-header-area" ng-style="{'background-image': 'url(http://localhost:1337/api/upload/readFile?file={{about.headerId.image}})'}">-->
              <!--<img ng-src="http://localhost:1337/api/upload/readFile?file={{about.headerId.image}}">-->
              <!--<img ng-src="http://localhost:1337/api/upload/readFile?file={{about.headerId.image}}">-->
             <div class="container">
@@ -203,42 +204,42 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                             <div class="total-team-area">
                                 <div class="single-team-area">
-                                    <a ui-sref="single-team"><img ng-src="http://localhost:1337/api/upload/readFile?file={{about.teamId.memberTeam[0].image}}" alt=""></a>
+                                    <a ng-click="singleTeam(about.teamId.memberTeam[0]._id)"><img ng-src="http://localhost:1337/api/upload/readFile?file={{about.teamId.memberTeam[0].image}}" alt=""></a>
                                     <div class="details">
                                         <a ui-sref="single-team">Details</a>
                                     </div>
                                 </div>
                             </div>                            
                             <div class="team-detals-area">
-                                <h3><a ui-sref="single-team">{{about.teamId.memberTeam[0].name}}</a></h3>
+                                <h3><a ng-click="singleTeam(about.teamId.memberTeam[0]._id)">{{about.teamId.memberTeam[0].name}}</a></h3>
                                 <p class="designation">{{about.teamId.memberTeam[0].designation}}</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                             <div class="total-team-area">
                                 <div class="single-team-area">
-                                    <a ui-sref="single-team"><img ng-src="http://localhost:1337/api/upload/readFile?file={{about.teamId.memberTeam[1].image}}" alt=""></a>
+                                    <a ng-click="singleTeam(about.teamId.memberTeam[1]._id)"><img ng-src="http://localhost:1337/api/upload/readFile?file={{about.teamId.memberTeam[1].image}}" alt=""></a>
                                     <div class="details">
                                         <a ui-sref="single-team">Details</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="team-detals-area">
-                                <h3><a ui-sref="single-team">{{about.teamId.memberTeam[1].name}}</a></h3>
+                                <h3><a ng-click="singleTeam(about.teamId.memberTeam[1]._id)">{{about.teamId.memberTeam[1].name}}</a></h3>
                                 <p class="designation">{{about.teamId.memberTeam[1].designation}}</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                             <div class="total-team-area">
                                 <div class="single-team-area">
-                                    <a ui-sref="single-team"><img ng-src="http://localhost:1337/api/upload/readFile?file={{about.teamId.memberTeam[2].image}}" alt=""></a>
+                                    <a ng-click="singleTeam(about.teamId.memberTeam[2]._id)"><img ng-src="http://localhost:1337/api/upload/readFile?file={{about.teamId.memberTeam[2].image}}" alt=""></a>
                                     <div class="details">
                                         <a ui-sref="single-team">Details</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="team-detals-area">
-                                <h3><a ui-sref="single-team">{{about.teamId.memberTeam[2].name}}</a></h3>
+                                <h3><a ng-click="singleTeam(about.teamId.memberTeam[2]._id)">{{about.teamId.memberTeam[2].name}}</a></h3>
                                 <p class="designation">{{about.teamId.memberTeam[2].designation}}</p>
                             </div>
                         </div>
