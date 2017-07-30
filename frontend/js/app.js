@@ -43,7 +43,7 @@ firstapp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $lo
             controller: 'teamCtrl'
         })
          .state('single-team', {
-            url: "/single-team",
+            url: "/single-team/:id",
             templateUrl: "frontend/views/template.html",
             controller: 'singleTeamCtrl'
         })

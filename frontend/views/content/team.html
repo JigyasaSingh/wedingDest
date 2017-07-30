@@ -68,7 +68,7 @@
                                         <li><a href="#">Pages</a>
                                             <ul>
                                                 <li><a href="team">Team</a></li>
-                                                <li><a href="single-team">Single Team</a></li>
+                                                <!--<li><a href="single-team">Single Team</a></li>-->
                                                 <li><a href="portfolio1">Portfolio </a></li>
                                                 <!--<li><a href="portfolio2.html">Portfolio 2</a></li>
                                                 <li><a href="portfolio3.html">Portfolio 3</a></li>
@@ -127,7 +127,7 @@
                             <li><a href="#">Pages</a>
                                 <ul>
                                     <li><a href="team">Team</a></li>
-                                    <li><a href="single-team">Single Team</a></li>
+                                    <!--<li><a href="single-team">Single Team</a></li>-->
                                     <li><a href="portfolio1">Portfolio 1</a></li>
                                     <!--<li><a href="portfolio2.html">Portfolio 2</a></li>
                                     <li><a href="portfolio3.html">Portfolio 3</a></li>
@@ -171,14 +171,14 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" ng-repeat="item in team.memberTeam">
                         <div class="total-team-area">
                             <div class="single-team-area">
-                                <a href="single-team"><img src="http://localhost:1337/api/upload/readFile?file={{item.image}}" alt=""></a>
+                                <a ng-click="singleTeam(item._id)"><img ng-src="http://localhost:1337/api/upload/readFile?file={{item.image}}" alt=""></a>
                                 <div class="details">
-                                    <a href="single-team">Details</a>
+                                    <a ng-click="singleTeam(item._id)">Details</a>
                                 </div>
                             </div>
                         </div>                            
                         <div class="team-detals-area">
-                            <h3><a href="single-team">{{item.name}}</a></h3>
+                            <h3><a ng-click="singleTeam(item._id)">{{item.name}}</a></h3>
                             <p class="designation">{{item.description}}</p>
                         </div>
                     </div>

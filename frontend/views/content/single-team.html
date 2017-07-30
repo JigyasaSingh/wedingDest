@@ -71,7 +71,7 @@
                                         <li><a href="#">Pages</a>
                                             <ul>
                                                 <li><a href="team">Team</a></li>
-                                                <li><a href="single-team">Single Team</a></li>
+                                                <!--<li><a href="single-team">Single Team</a></li>-->
                                                 <li><a href="portfolio1">Portfolio </a></li>
                                                 <!--<li><a href="portfolio2.html">Portfolio 2</a></li>
                                                 <li><a href="portfolio3.html">Portfolio 3</a></li>
@@ -96,7 +96,7 @@
                                         </form>
                                         </div>
                                     </li>
-                                    <li class="cart-area"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+                                    <!--<li class="cart-area"><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>-->
                                 </ul>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                             <li><a href="#">Pages</a>
                                 <ul>
                                     <li><a href="team">Team</a></li>
-                                    <li><a href="single-team">Single Team</a></li>
+                                    <!--<li><a href="single-team">Single Team</a></li>-->
                                     <li><a href="portfolio1">Portfolio</a></li>
                                     <!--<li><a href="portfolio2.html">Portfolio 2</a></li>
                                     <li><a href="portfolio3.html">Portfolio 3</a></li>
@@ -174,26 +174,25 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                         <div class="total-team-area">
                             <div class="single-team-area">
-                                <a href="single-team.html"><img src="frontend/views/content/img/team/1.png" alt=""></a>
+                                <a href="single-team"><img ng-src="http://localhost:1337/api/upload/readFile?file={{member.image}}" alt=""></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">                   
                       <div class="single-team-content-area">
-                        <h2>Tina Jahan</h2>
-                        <p class="designation">Wedding Coordinator</p>
+                        <h2>{{member.name}}</h2>
+                        <p class="designation">{{member.desciption}}</p>
                         <div class="content">
-                          <p>Dimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                          <p>Dimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer pesetting. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                          <p>{{member.summary}}</p>
                         </div>
                         <div class="social-media">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                <li><a href="{{member.fbProfile}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="{{member.twitterProfile}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <!--<li><a href="{{member.}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>-->
+                                <li><a href="{{member.pinterest}}"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="{{member.skype}}"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                                <!--<li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>-->
                             </ul>
                         </div>
                       </div>       
@@ -209,51 +208,23 @@
                     <div class="col-lg-12 col-md-md-12 col-sm-12 col-xs-12 text-center">                        
                         <div class="template-section-area">
                             <h2>Related Team</h2>
-                            <p> Dimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy texen book. It has survived not only five centuries, but also the leap iining esse.</p>
+                            <p> {{member.teamId.tagline}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="row total-team">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" ng-repeat="item in temp">
                             <div class="total-team-area">
                                 <div class="single-team-area">
-                                    <a href="single-team"><img src="frontend/views/content/img/team/1.png" alt=""></a>
+                                    <a ng-click="singleTeam(item._id)"><img src="http://localhost:1337/api/upload/readFile?file={{item.image}}" alt=""></a>
                                     <div class="details">
-                                        <a href="single-team">Details</a>
+                                        <a ng-click="singleTeam(item._id)">Details</a>
                                     </div>
                                 </div>
                             </div>                            
                             <div class="team-detals-area">
-                                <h3><a href="single-team.html">Tina Jahan</a></h3>
-                                <p class="designation">Wedding Co0rdinator</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                            <div class="total-team-area">
-                                <div class="single-team-area">
-                                    <a href="single-team"><img src="frontend/views/content/img/team/2.png" alt=""></a>
-                                    <div class="details">
-                                        <a href="single-team">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-detals-area">
-                                <h3><a href="single-team.html">Kaji Fahim</a></h3>
-                                <p class="designation">Wedding Planner</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-                            <div class="total-team-area">
-                                <div class="single-team-area">
-                                    <a href="single-team.html"><img src="frontend/views/content/img/team/3.png" alt=""></a>
-                                    <div class="details">
-                                        <a href="single-team.html">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-detals-area">
-                                <h3><a href="single-team.html">Lija Kiron</a></h3>
-                                <p class="designation">Wedding Cordinator</p>
+                                <h3><a ng-click="singleTeam(item._id)">{{item.name}}</a></h3>
+                                <p class="designation">{{item.designation}}</p>
                             </div>
                         </div>
                 </div>
@@ -292,7 +263,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-md-6 col-sm-6 col-xs-12 text-left">
                             <div class="footer-bottom-left">
-                                <p>&copy; Copyrights wedding Revel 2016. . Designer By themelocation</p>
+                                <p>&copy; Copyrights Wedding Destination 2017. . Designed & Developed By Pixburg</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-md-6 col-sm-6 col-xs-12 text-right">

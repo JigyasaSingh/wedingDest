@@ -106,6 +106,7 @@ var model = {
                                     });
                 },
                 function(finalData,callback){
+                    console.log("final",finalData);
                     var total=finalData;
                     total.temp=[];
                     async.eachSeries(finalData.teamId.memberTeam,function(n,innercallback){

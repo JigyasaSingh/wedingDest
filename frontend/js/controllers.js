@@ -45,7 +45,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
          $scope.url="Team/getTeam"
         NavigationService.callApi($scope.url, function (data) {     
             $scope.team = data.data[0];
-            // $scope.describe.push($scope.description);
             console.log("data of team:",$scope.team);
         });
 
@@ -88,7 +87,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         TemplateService.title = $scope.menutitle;
         $scope.locString = [];
         $scope.navigation = NavigationService.getnav(); 
-        $scope._id=$stateParams.id;
+        $scope.formData={};
+        $scope.formData._id=$stateParams.id;
+        $scope.url="Member/getMember"
+        NavigationService.apiCallWithData($scope.url, $scope.formData,function (data) {     
+            $scope.member = data.data;
+            console.log("data:",$scope.member);
+        });
+
+        $scope.singleTeam=function(paramData){
+              $state.go('single-team', {
+                        id: paramData
+                    })
+        }
+
         
 
     })
